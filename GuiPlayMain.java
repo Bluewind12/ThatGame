@@ -289,7 +289,8 @@ public class GuiPlayMain extends Application {
 
         //ボタン設定
         p1_AttackButton.setPrefSize(buttonWidth, buttonHeight);
-        p1_AttackButton.setOnAction(event -> setState("p1","attack"));
+        p1_AttackButton.setOnAction(event -> setState("p1", "attack"));
+        p1_AttackButton.setDisable(true);
         p1_ChargeButton.setPrefSize(buttonWidth, buttonHeight);
         p1_ChargeButton.setOnAction(event -> setState("p1", "charge"));
         p1_GuardButton.setPrefSize(buttonWidth, buttonHeight);
@@ -298,6 +299,7 @@ public class GuiPlayMain extends Application {
 
         p2_AttackButton.setPrefSize(buttonWidth, buttonHeight);
         p2_AttackButton.setOnAction(event -> setState("p2", "attack"));
+        p2_AttackButton.setDisable(true);
         p2_ChargeButton.setPrefSize(buttonWidth, buttonHeight);
         p2_ChargeButton.setOnAction(event -> setState("p2", "charge"));
         p2_GuardButton.setPrefSize(buttonWidth, buttonHeight);
@@ -416,14 +418,15 @@ public class GuiPlayMain extends Application {
             switch (state) {
 
             case "attack":
-                cpuChage--;
+                p1_Chage--;
                 p1_StateImage.setImage(new Image("./attack.png"));
                 if (p1_Chage <= 0) {
                     p1_AttackButton.setDisable(true);
+                    p1_State = "charge";
                 }
                 break;
             case "charge":
-                cpuChage++;
+                p1_Chage++;
                 p1_StateImage.setImage(new Image("./charge.png"));
                 if (p1_Chage > 0) {
                     p1_AttackButton.setDisable(false);
@@ -436,18 +439,21 @@ public class GuiPlayMain extends Application {
             break;
         case "p2":
             switch (state) {
-            case "charge":
-                p2_Chage++;
-                p2_StateImage.setImage(new Image("./charge.png"));
-                if (p2_Chage > 0) {
-                    p2_AttackButton.setDisable(false);
-                }
-                break;
+
             case "attack":
                 p2_Chage--;
                 p2_StateImage.setImage(new Image("./attack.png"));
                 if (p2_Chage <= 0) {
                     p2_AttackButton.setDisable(true);
+                    p2_State = "charge";
+                }
+                break;
+            case "charge":
+                p2_Chage++;
+                p2_StateImage.setImage(new Image("./charge.png"));
+                if (p2_Chage > 0) {
+                    p2_AttackButton.setDisable(false);
+
                 }
                 break;
             case "guard":
@@ -462,7 +468,7 @@ public class GuiPlayMain extends Application {
         switch (who) {
         case "p1":
             p1_State = state;
-            System.out.println("P1:"+p1_State);//仮設置
+            System.out.println("P1:" + p1_State);//仮設置
             break;
         case "p2":
             p2_State = state;
