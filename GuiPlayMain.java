@@ -107,7 +107,6 @@ public class GuiPlayMain extends Application {
 
         int buttonHeight = 50;
         int buttonWidth = 125;
-        int buttonTextSize = 15;
 
         stage.setOnCloseRequest(event -> restartButton());
         stage.setTitle("CPUÅ@BATTLE");
