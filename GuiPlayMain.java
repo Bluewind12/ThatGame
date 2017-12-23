@@ -74,7 +74,7 @@ public class GuiPlayMain extends Application {
         HBox buttonlayoutBox = new HBox(20);
         buttonlayoutBox.setAlignment(Pos.CENTER);
 
-        Text titleText = new Text("ó≠ÇﬂÇΩÇËåÇÇ¡ÇΩÇËñhå‰ÇµÇΩÇËÇ∑ÇÈÅEÇ†ÇÍ");
+        Text titleText = new Text("ó≠ÇﬂÇΩÇËåÇÇ¡ÇΩÇËñhå‰ÇµÇΩÇËÇ∑ÇÈÅEÉAÉå");
         titleText.setFont(new Font(40));
 
         computermodeButton.setPrefSize(buttonWidth, buttonHeight);
